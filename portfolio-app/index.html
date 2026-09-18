@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gedela Umamaheswara Rao - Professional Portfolio</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #0f172a; color: #f8fafc; line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: 30px auto; background: #1e293b; padding: 40px; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        header { text-align: center; margin-bottom: 35px; border-bottom: 2px solid #334155; padding-bottom: 25px; }
+        header h1 { color: #38bdf8; font-size: 2.6rem; margin-bottom: 8px; font-weight: 700; }
+        header p { color: #94a3b8; font-size: 1.2rem; }
+        .section { margin-bottom: 35px; }
+        .section h2 { color: #38bdf8; font-size: 1.5rem; margin-bottom: 15px; border-left: 4px solid #38bdf8; padding-left: 12px; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 12px; list-style: none; }
+        .skills-list li { background: #334155; color: #e2e8f0; padding: 8px 16px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; border: 1px solid #475569; }
+        .skills-list li:hover { background: #0284c7; color: #fff; transform: translateY(-2px); border-color: #38bdf8; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
+        .project-card { background: #334155; padding: 20px; border-radius: 10px; border-left: 4px solid #0284c7; transition: transform 0.2s; }
+        .project-card:hover { transform: translateY(-3px); }
+        .project-card h3 { color: #38bdf8; font-size: 1.15rem; margin-bottom: 8px; }
+        .project-card p { color: #94a3b8; font-size: 0.9rem; }
+        .task-box { display: flex; gap: 12px; margin-top: 15px; }
+        input[type="text"] { flex: 1; padding: 14px; background: #0f172a; border: 1px solid #475569; color: #fff; border-radius: 8px; font-size: 1rem; }
+        input[type="text"]:focus { outline: none; border-color: #38bdf8; box-shadow: 0 0 8px rgba(56, 189, 248, 0.3); }
+        button { padding: 14px 24px; background: #0284c7; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #0ea5e9; }
+        .task-stats { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; color: #94a3b8; font-size: 0.95rem; }
+        ul#taskList { list-style: none; margin-top: 15px; max-height: 280px; overflow-y: auto; }
+        ul#taskList li { background: #334155; margin-top: 10px; padding: 14px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #475569; }
+        ul#taskList li.completed span { text-decoration: line-through; color: #64748b; }
+        .task-actions { display: flex; gap: 10px; }
+        .done-btn { background: #10b981; padding: 8px 14px; font-size: 0.85rem; border-radius: 6px; }
+        .done-btn:hover { background: #059669; }
+        .delete-btn { background: #ef4444; padding: 8px 14px; font-size: 0.85rem; border-radius: 6px; }
+        .delete-btn:hover { background: #dc2626; }
+        footer { text-align: center; margin-top: 40px; color: #64748b; font-size: 0.95rem; border-top: 1px solid #334155; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header / Profile Intro -->
+        <header>
+            <h1>Gedela Umamaheswara Rao</h1>
+            <p>B.Tech Computer Science & Engineering Student | CSE Class of '27</p>
+        </header>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p>Driven Computer Science student with a strong passion for Software Development, Python Systems, and Linux Architecture. Dedicated to building clean, efficient, and user-centric web applications.</p>
+        </div>
+
+        <!-- Technical Skills Section (Interactive Clickable) -->
+        <div class="section">
+            <h2>Technical Skills (Click to Explore)</h2>
+            <ul class="skills-list">
+                <li onclick="showSkill('HTML5 & CSS3')">HTML5 & CSS3</li>
+                <li onclick="showSkill('JavaScript (ES6+)')">JavaScript (ES6+)</li>
+                <li onclick="showSkill('Python Programming')">Python Programming</li>
+                <li onclick="showSkill('Linux Terminal & Bash')">Linux Terminal & Bash</li>
+                <li onclick="showSkill('Git & GitHub')">Git & GitHub Version Control</li>
+                <li onclick="showSkill('VS Code Environment')">VS Code Environment</li>
+            </ul>
+        </div>
+
+        <!-- Featured Projects Section -->
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>1. Portfolio & Task Manager</h3>
+                    <p>Responsive developer portfolio featuring dynamic state management and dark-mode UI built using vanilla web technologies.</p>
+                </div>
+                <div class="project-card">
+                    <h3>2. Python Utility Tool</h3>
+                    <p>Automated script for local system monitoring, file management, and performance logging.</p>
+                </div>
+                <div class="project-card">
+                    <h3>3. Linux Log Analyzer</h3>
+                    <p>Bash and Python utility to parse system logs, extract error patterns, and generate analytical summaries.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Task Manager Section -->
+        <div class="section">
+            <h2>Interactive Task Manager</h2>
+            <p style="color: #94a3b8; font-size: 0.95rem;">Add and track your daily engineering tasks and goals:</p>
+            <div class="task-box">
+                <input type="text" id="taskInput" placeholder="Enter a task (e.g., Push code to GitHub)...">
+                <button onclick="addTask()">Add Task</button>
+            </div>
+            
+            <div class="task-stats">
+                <span id="taskCount">Total Tasks: 0</span>
+                <button onclick="clearAllTasks()" style="background: #334155; padding: 8px 14px; font-size: 0.85rem; border: 1px solid #475569;">Clear All</button>
+            </div>
+
+            <ul id="taskList"></ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Gedela Umamaheswara Rao | Professional Portfolio</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSkill(skillName) {
+            alert("Skill Selected: " + skillName + " - Core competency in my technical stack!");
+        }
+
+        function updateCount() {
+            let total = document.querySelectorAll('#taskList li').length;
+            document.getElementById('taskCount').innerText = `Total Tasks: ${total}`;
+        }
+
+        function addTask() {
+            let input = document.getElementById('taskInput');
+            let taskText = input.value.trim();
+            if (taskText === '') return;
+
+            let ul = document.getElementById('taskList');
+            let li = document.createElement('li');
+            
+            li.innerHTML = `
+                <span>${taskText}</span>
+                <div class="task-actions">
+                    <button class="done-btn" onclick="toggleDone(this)">Done</button>
+                    <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+                </div>
+            `;
+            ul.appendChild(li);
+            input.value = '';
+            updateCount();
+        }
+
+        function toggleDone(btn) {
+            let li = btn.closest('li');
+            li.classList.toggle('completed');
+        }
+
+        function deleteTask(btn) {
+            let li = btn.closest('li');
+            li.remove();
+            updateCount();
+        }
+
+        function clearAllTasks() {
+            document.getElementById('taskList').innerHTML = '';
+            updateCount();
+        }
+    </script>
+
+</body>
+</html>
