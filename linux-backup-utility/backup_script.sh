@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==========================================
-# DevOps Automated Backup Script
+# DevOps Automated Backup Script with Cleanup
 # Author: Gedela Umamahesh
 # ==========================================
 
@@ -29,5 +29,10 @@ else
     echo "[ERROR] Backup failed!" >&2
     exit 1
 fi
+
+# Cleanup: Delete backups older than 7 days to save storage
+echo "[INFO] Cleaning up backups older than 7 days..."
+find "$BACKUP_DIR" -name "portfolio_backup_*.tar.gz" -mtime +7 -delete
+echo "[SUCCESS] Cleanup completed!"
 
 echo "=========================================="
